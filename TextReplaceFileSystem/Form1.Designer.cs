@@ -56,23 +56,28 @@
             // SaveToolStripMenuItem
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.SaveToolStripMenuItem.Text = "保存";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // userControl11
             // 
             this.userControl11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl11.FoundText = "";
+            this.userControl11.KeywordText = "";
             this.userControl11.Location = new System.Drawing.Point(0, 24);
             this.userControl11.Name = "userControl11";
-            this.userControl11.Size = new System.Drawing.Size(565, 406);
+            this.userControl11.ReplacesText = "";
+            this.userControl11.RootText = "";
+            this.userControl11.SearchPatternText = "*.html";
+            this.userControl11.Size = new System.Drawing.Size(565, 488);
             this.userControl11.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 430);
+            this.ClientSize = new System.Drawing.Size(565, 512);
             this.Controls.Add(this.userControl11);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

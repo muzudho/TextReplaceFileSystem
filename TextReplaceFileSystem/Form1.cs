@@ -80,7 +80,6 @@ namespace TextReplaceFileSystem
                     userControl11.FoundText = File.ReadAllText(path);
                 }
             }
-
         }
     }
 }

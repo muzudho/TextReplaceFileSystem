@@ -41,6 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbxReplaces = new System.Windows.Forms.TextBox();
             this.btnClears = new System.Windows.Forms.Button();
+            this.btnFileNameList = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -151,10 +152,21 @@
             this.btnClears.UseVisualStyleBackColor = true;
             this.btnClears.Click += new System.EventHandler(this.btnClears_Click);
             // 
+            // btnFileNameList
+            // 
+            this.btnFileNameList.Location = new System.Drawing.Point(86, 252);
+            this.btnFileNameList.Name = "btnFileNameList";
+            this.btnFileNameList.Size = new System.Drawing.Size(96, 23);
+            this.btnFileNameList.TabIndex = 12;
+            this.btnFileNameList.Text = "ファイル名リスト";
+            this.btnFileNameList.UseVisualStyleBackColor = true;
+            this.btnFileNameList.Click += new System.EventHandler(this.btnFileNameList_Click);
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnFileNameList);
             this.Controls.Add(this.btnClears);
             this.Controls.Add(this.tbxReplaces);
             this.Controls.Add(this.label4);
@@ -189,5 +201,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbxReplaces;
         private System.Windows.Forms.Button btnClears;
+        private System.Windows.Forms.Button btnFileNameList;
     }
 }
