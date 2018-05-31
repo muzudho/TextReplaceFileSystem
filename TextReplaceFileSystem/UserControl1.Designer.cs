@@ -38,6 +38,9 @@
             this.tbxKeyword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbxSearchPattern = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbxReplaces = new System.Windows.Forms.TextBox();
+            this.btnClears = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -68,7 +71,7 @@
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(5, 145);
+            this.btnFind.Location = new System.Drawing.Point(5, 252);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(75, 23);
             this.btnFind.TabIndex = 3;
@@ -78,7 +81,7 @@
             // 
             // tbxFound
             // 
-            this.tbxFound.Location = new System.Drawing.Point(5, 174);
+            this.tbxFound.Location = new System.Drawing.Point(5, 281);
             this.tbxFound.Multiline = true;
             this.tbxFound.Name = "tbxFound";
             this.tbxFound.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -99,13 +102,14 @@
             this.tbxKeyword.Location = new System.Drawing.Point(97, 44);
             this.tbxKeyword.Multiline = true;
             this.tbxKeyword.Name = "tbxKeyword";
-            this.tbxKeyword.Size = new System.Drawing.Size(321, 61);
+            this.tbxKeyword.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tbxKeyword.Size = new System.Drawing.Size(402, 70);
             this.tbxKeyword.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 121);
+            this.label3.Location = new System.Drawing.Point(3, 237);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 12);
             this.label3.TabIndex = 7;
@@ -113,16 +117,47 @@
             // 
             // tbxSearchPattern
             // 
-            this.tbxSearchPattern.Location = new System.Drawing.Point(97, 118);
+            this.tbxSearchPattern.Location = new System.Drawing.Point(97, 230);
             this.tbxSearchPattern.Name = "tbxSearchPattern";
             this.tbxSearchPattern.Size = new System.Drawing.Size(321, 19);
             this.tbxSearchPattern.TabIndex = 8;
             this.tbxSearchPattern.Text = "*.html";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 130);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 12);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "置換後文字列";
+            // 
+            // tbxReplaces
+            // 
+            this.tbxReplaces.Location = new System.Drawing.Point(97, 127);
+            this.tbxReplaces.Multiline = true;
+            this.tbxReplaces.Name = "tbxReplaces";
+            this.tbxReplaces.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tbxReplaces.Size = new System.Drawing.Size(402, 74);
+            this.tbxReplaces.TabIndex = 10;
+            // 
+            // btnClears
+            // 
+            this.btnClears.Location = new System.Drawing.Point(424, 252);
+            this.btnClears.Name = "btnClears";
+            this.btnClears.Size = new System.Drawing.Size(75, 23);
+            this.btnClears.TabIndex = 11;
+            this.btnClears.Text = "クリアー";
+            this.btnClears.UseVisualStyleBackColor = true;
+            this.btnClears.Click += new System.EventHandler(this.btnClears_Click);
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnClears);
+            this.Controls.Add(this.tbxReplaces);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.tbxSearchPattern);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxKeyword);
@@ -133,7 +168,7 @@
             this.Controls.Add(this.tbxRoot);
             this.Controls.Add(this.label1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(546, 372);
+            this.Size = new System.Drawing.Size(512, 479);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +186,8 @@
         private System.Windows.Forms.TextBox tbxKeyword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxSearchPattern;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbxReplaces;
+        private System.Windows.Forms.Button btnClears;
     }
 }

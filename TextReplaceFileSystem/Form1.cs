@@ -13,6 +13,12 @@ namespace TextReplaceFileSystem
 {
     public partial class Form1 : Form
     {
+        const string ROOT_FILE = "./root-directory.txt";
+        const string KEYWORD_FILE = "./keyword-text.txt";
+        const string REPLACES_FILE = "./replaces-text.txt";
+        const string SEARCH_PATTERN_FILE = "./search-pattern-text.txt";
+        const string FOUND_FILE = "./found-text.txt";
+
         public Form1()
         {
             InitializeComponent();
@@ -25,9 +31,11 @@ namespace TextReplaceFileSystem
         /// <param name="e"></param>
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            File.WriteAllText("./root-directory.txt", userControl11.RootText);
-            File.WriteAllText("./found-text.txt", userControl11.FoundText);
-            File.WriteAllText("./search-pattern-text.txt", userControl11.SearchPatternText);
+            File.WriteAllText(ROOT_FILE, userControl11.RootText);
+            File.WriteAllText(KEYWORD_FILE, userControl11.KeywordText);
+            File.WriteAllText(REPLACES_FILE, userControl11.ReplacesText);
+            File.WriteAllText(SEARCH_PATTERN_FILE, userControl11.SearchPatternText);
+            File.WriteAllText(FOUND_FILE, userControl11.FoundText);
         }
 
         /// <summary>
@@ -38,24 +46,38 @@ namespace TextReplaceFileSystem
         private void Form1_Load(object sender, EventArgs e)
         {
             {
-                string path = "./root-directory.txt";
+                string path = ROOT_FILE;
                 if (File.Exists(path))
                 {
                     userControl11.RootText = File.ReadAllText(path);
                 }
             }
             {
-                string path = "./found-text.txt";
+                string path = KEYWORD_FILE;
                 if (File.Exists(path))
                 {
-                    userControl11.FoundText = File.ReadAllText(path);
+                    userControl11.KeywordText = File.ReadAllText(path);
                 }
             }
             {
-                string path = "./search-pattern-text.txt";
+                string path = REPLACES_FILE;
+                if (File.Exists(path))
+                {
+                    userControl11.ReplacesText = File.ReadAllText(path);
+                }
+            }
+            {
+                string path = SEARCH_PATTERN_FILE;
                 if (File.Exists(path))
                 {
                     userControl11.SearchPatternText = File.ReadAllText(path);
+                }
+            }
+            {
+                string path = FOUND_FILE;
+                if (File.Exists(path))
+                {
+                    userControl11.FoundText = File.ReadAllText(path);
                 }
             }
 

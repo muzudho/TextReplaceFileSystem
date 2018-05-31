@@ -29,6 +29,25 @@ namespace TextReplaceFileSystem
             }
         }
 
+        private void findKeywords(string path, out int hits)
+        {
+            hits = 0;
+
+            string contents = File.ReadAllText(path);
+            int caret = 0;
+
+            for (; ;)
+            {
+                int index = contents.IndexOf(tbxKeyword.Text, caret);
+                if (index == -1)
+                {
+                    break;
+                }
+                caret = index + tbxKeyword.Text.Length;
+                hits++;
+            }
+        }
+
         /// <summary>
         /// 検索ボタンをクリックしたとき。
         /// </summary>
@@ -43,11 +62,16 @@ namespace TextReplaceFileSystem
                 System.IO.Directory.EnumerateFiles(
                     tbxRoot.Text, tbxSearchPattern.Text, System.IO.SearchOption.AllDirectories);
 
-            //ファイルを列挙する
+            // ファイルを列挙する
             foreach (string f in files)
             {
-                tbxFound.Text += f + "\r\n";
-                Application.DoEvents();
+                // 内容を検索する
+                findKeywords(f, out int hits);
+                if(0< hits)
+                {
+                    tbxFound.Text += string.Format("{{ \"file\":\"{0}\",\"hits\":{1} }}\r\n", f, hits);
+                    Application.DoEvents();
+                }
             }
 
             tbxFound.Text += "[EOF]\r\n";
@@ -70,18 +94,34 @@ namespace TextReplaceFileSystem
         }
 
         /// <summary>
-        /// 検索結果
+        /// 検索キーワード
         /// </summary>
         /// <returns></returns>
-        public string FoundText
+        public string KeywordText
         {
             get
             {
-                return tbxFound.Text;
+                return tbxKeyword.Text;
             }
             set
             {
-                tbxFound.Text = value;
+                tbxKeyword.Text = value;
+            }
+        }
+
+        /// <summary>
+        /// 置換後文字列
+        /// </summary>
+        /// <returns></returns>
+        public string ReplacesText
+        {
+            get
+            {
+                return tbxReplaces.Text;
+            }
+            set
+            {
+                tbxReplaces.Text = value;
             }
         }
 
@@ -101,5 +141,25 @@ namespace TextReplaceFileSystem
             }
         }
 
+        /// <summary>
+        /// 検索結果
+        /// </summary>
+        /// <returns></returns>
+        public string FoundText
+        {
+            get
+            {
+                return tbxFound.Text;
+            }
+            set
+            {
+                tbxFound.Text = value;
+            }
+        }
+
+        private void btnClears_Click(object sender, EventArgs e)
+        {
+            tbxFound.Text = "";
+        }
     }
 }
